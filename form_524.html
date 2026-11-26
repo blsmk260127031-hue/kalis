@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Data Siswa RPL</title>
+    <link rel="stylesheet" href="gaya_524.css">
+</head>
+<body>
+    <div class="kotak">
+        <h2>Form Data Siswa</h2>
+        <form method="POST" action="proses_524.php" onsubmit="return validasiFormRPL()">
+            <label for="txt_nama">Nama Lengkap:</label>
+            <input type="text" id="txt_nama" name="txt_nama" placeholder="Contoh: Budi Santoso">
+
+            <label for="txt_kelas">Kelas:</label>
+            <input type="text" id="txt_kelas" name="txt_kelas" placeholder="Contoh: XI RPL 1">
+
+            <label>Pilihan Minat:</label>
+            <div class="pilihan">
+                <label><input type="radio" name="rad_minat" value="Web Dev"> Web Dev</label>
+                <label><input type="radio" name="rad_minat" value="Mobile Dev"> Mobile Dev</label>
+                <label><input type="radio" name="rad_minat" value="Game Dev"> Game Dev</label>
+            </div>
+
+            <button type="submit">Simpan Data</button>
+        </form>
+    </div>
+
+    <script>
+        function validasiFormRPL() {
+            var nama = document.getElementById("txt_nama").value.trim();
+            var kelas = document.getElementById("txt_kelas").value.trim();
+            var minat = document.querySelector('input[name="rad_minat"]:checked');
+
+            if (nama === "" || kelas === "" || minat === null) {
+                alert("Nama, kelas, dan pilihan minat harus diisi!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
